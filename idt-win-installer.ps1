@@ -190,7 +190,7 @@ function install_deps() {
   if( -not (get-command helm -erroraction 'silentlycontinue') -or $Global:FORCE) {
     log "Installing/updating external dependency: helm"
 	[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-    $helm_url = ((Invoke-WebRequest 'https://github.com/kubernetes/helm' -UseBasicParsing).Links.OuterHTML | Where-Object{$_ -match 'windows-amd64.tar.gz'} | Select-Object -first 1).Split('"')[1]
+    $helm_url = ((Invoke-WebRequest 'https://github.com/kubernetes/helm/releases/tag/v2.9.1' -UseBasicParsing).Links.OuterHTML | Where-Object{$_ -match 'windows-amd64.zip'} | Select-Object -first 1).Split('"')[1]
     #$helm_url = ((Invoke-WebRequest https://github.com/kubernetes/helm -UseBasicParsing).Links.OuterHTML | Where-Object{$_ -match 'windows-amd64.tar.gz'} | Select-Object -first 1).Split('"')[1]
     log "Helm URL : $helm_url"
     $helm_file = $helm_url.Split("/")[-1]
