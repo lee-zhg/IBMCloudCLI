@@ -36,7 +36,7 @@ curl -sL https://ibm.biz/idt-installer | bash
 * Note: Open Windows PowerShell by right-clicking the PowerShell icon and selecting "Run as Administrator".
 
 ```
-Set-ExecutionPolicy Unrestricted; iex(New-Object Net.WebClient).DownloadString('http://ibm.biz/idt-win-installer')
+Set-ExecutionPolicy Unrestricted; iex(New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/lee-zhg/IBMCloudCLI/master/idt-win-installer.ps1')
 ```
 
 ## Verify Installation
